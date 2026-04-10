@@ -1,0 +1,188 @@
+:root {
+  --primary: #2ecc71;
+  --primary-dark: #27ae60;
+  --bg: #f8f9fa;
+  --card-bg: #ffffff;
+  --text: #2c3e50;
+  --text-light: #7f8c8d;
+  --shadow: 0 4px 12px rgba(0,0,0,0.08);
+  --radius: 14px;
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  padding-bottom: 3rem;
+}
+
+header {
+  background: linear-gradient(135deg, var(--primary), #1abc9c);
+  color: white;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+header h1 { font-size: 1.9rem; letter-spacing: -0.5px; }
+
+nav { display: flex; gap: 0.6rem; }
+
+button {
+  background: rgba(255,255,255,0.2);
+  border: 2px solid rgba(255,255,255,0.6);
+  color: white;
+  padding: 0.65rem 1.2rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+button:hover, button:focus-visible {
+  background: white;
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+main { max-width: 1100px; margin: 2.5rem auto; padding: 0 1.2rem; }
+.hidden { display: none !important; }
+
+h2 { margin-bottom: 1.4rem; font-weight: 700; }
+
+#fruit-form {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 600px;
+  display: grid;
+  gap: 1rem;
+}
+
+input {
+  padding: 0.9rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: var(--transition);
+  background: #fafafa;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.15);
+  background: white;
+}
+
+#fruit-form button {
+  background: var(--primary);
+  border: none;
+  color: white;
+  padding: 1rem;
+  font-size: 1.05rem;
+  margin-top: 0.5rem;
+}
+
+#fruit-form button:hover { background: var(--primary-dark); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.fruit-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.fruit-card:hover { transform: translateY(-6px); box-shadow: 0 10px 20px rgba(0,0,0,0.12); }
+
+.fruit-img {
+  height: 170px;
+  background: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  position: relative;
+}
+
+.fruit-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0; left: 0;
+}
+
+.fruit-info { padding: 1.2rem; flex: 1; display: flex; flex-direction: column; }
+.fruit-name { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.2rem; }
+.fruit-seller { color: var(--text-light); font-size: 0.88rem; margin-bottom: 0.8rem; }
+.fruit-price { font-size: 1.35rem; color: var(--primary-dark); font-weight: 800; margin-top: auto; }
+
+.card-actions { display: flex; gap: 0.6rem; margin-top: 1rem; }
+.buy-btn {
+  flex: 2;
+  background: var(--primary);
+  border: none;
+  color: white;
+  padding: 0.7rem;
+  border-radius: 9px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+.buy-btn:hover { background: var(--primary-dark); }
+
+.delete-btn {
+  flex: 1;
+  background: #ef4444;
+  border: none;
+  color: white;
+  padding: 0.7rem;
+  border-radius: 9px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+.delete-btn:hover { background: #dc2626; }
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #10b981;
+  color: white;
+  padding: 1rem 1.4rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  z-index: 1000;
+  animation: slideIn 0.3s ease;
+  font-weight: 500;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@media (max-width: 600px) {
+  header { flex-direction: column; text-align: center; }
+  nav { justify-content: center; }
+  .grid { grid-template-columns: 1fr; }
+}
