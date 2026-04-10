@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreshFruit Market</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🍎 FreshFruit Market</h1>
+    <nav>
+      <button id="show-list">📝 List a Fruit</button>
+      <button id="show-market">🛒 Browse Market</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="list-section" class="hidden">
+      <h2>List Your Fruit for Sale</h2>
+      <form id="fruit-form" autocomplete="off">
+        <input type="text" id="fruit-name" placeholder="Fruit Name (e.g., Organic Apples)" required>
+        <input type="number" id="fruit-price" placeholder="Price per kg ($)" step="0.01" min="0.01" required>
+        <input type="text" id="seller-name" placeholder="Your Name / Farm Name" required>
+        <input type="url" id="fruit-image" placeholder="Image URL (optional)">
+        <button type="submit">🚀 Publish Listing</button>
+      </form>
+    </section>
+
+    <section id="market-section">
+      <h2>🌍 Local Marketplace</h2>
+      <div id="fruit-grid" class="grid"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
